@@ -23,7 +23,9 @@ end
 -- ✅ ถ้าชื่อผู้เล่นอยู่ในรายการ allowedNames ให้เซ็ตกลับเป็น _G.Settings_V4
 if allowedNames[localName] then
     _G.Settings_V4 = settings
+    print("Found")
 else
+    print("Not Found")
     return
 end
 
