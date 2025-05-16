@@ -27,17 +27,22 @@ function HasMain()
         print("Found")
         --return true
         loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MasterPClient/main/Loader.lua"))()
-        wait(25)
     end
     print("Not Found")
 end
 
 
 while true do
-    pcall(function()
-        HasMain()
+    task.spawn(function()
+        local success, err = pcall(function()
+            HasMain()
+        end)
+        if not success then
+            warn("Error in HasMain:", err)
+        end
     end)
-    task.wait(5)
+    task.wait(21)
 end
+
 
     
