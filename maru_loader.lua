@@ -1,3 +1,11 @@
+local settingsKeyName = _G.SettingsName or "Settings_V4"
+local settings = _G[settingsKeyName]
+
+if not settings then
+    warn("Settings not found with name:", settingsKeyName)
+    return
+end
+
 local Players = game:GetService("Players")
 repeat wait() until game:IsLoaded() and Players.LocalPlayer
 localName = Players.LocalPlayer.Name
