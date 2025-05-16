@@ -20,17 +20,6 @@ if not allowedNames[localName] then
     return
 end
 
-
-function HasMain()
-    local gui = game.Players.LocalPlayer:FindFirstChild("PlayerGui")
-    if gui and gui:FindFirstChild("Main") then
-        print("Found")
-        return true
-    end
-    print("Not Found")
-end
-
-
 time_execute = 0
 while true do
     wait(20)
