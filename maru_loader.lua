@@ -27,6 +27,7 @@ function HasMain()
         print("Found")
         --return true
         loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MasterPClient/main/Loader.lua"))()
+        wait(25)
     end
     print("Not Found")
 end
