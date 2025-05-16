@@ -1,4 +1,6 @@
-local allowed = false
+local Players = game:GetService("Players")
+repeat wait() until game:IsLoaded() and Players.LocalPlayer
+localName = Players.LocalPlayer.Name
 
 for _, name in ipairs(settings["HelperNameList"]) do
     if name == localName then
