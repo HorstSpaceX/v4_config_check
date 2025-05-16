@@ -19,14 +19,13 @@ if not allowedNames[localName] then
     return -- ออกจาก script เลย ไม่ทำงานต่อ
 end
 
---repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui") and game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main")
-time_execute = 0
-while true do 
+while true do
     --wait(20)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MasterPClient/main/Loader.lua"))()
-    time_execute = time_execute + 1
-    if time_execute >= 2 then
+    if game.Players.LocalPlayer:FindFirstChild("PlayerGui") and game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main") then
         break
     end
+    wait(5)
 end
+
     
