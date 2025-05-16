@@ -20,17 +20,23 @@ if not allowedNames[localName] then
     return
 end
 
-time_execute = 0
-while true do
-    wait(20)
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MasterPClient/main/Loader.lua"))()
-    --if game.Players.LocalPlayer:FindFirstChild("PlayerGui") and game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main") then
-    --    break
-    --end
-    time_execute = time_execute + 1 
-    if time_execute >= 2 then
-        break
+
+function HasMain()
+    local gui = game.Players.LocalPlayer:FindFirstChild("PlayerGui")
+    if gui and gui:FindFirstChild("Main (minimal)") then
+        print("Found")
+        --return true
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MasterPClient/main/Loader.lua"))()
     end
+    print("Not Found")
+end
+
+
+while true do
+    pcall(function()
+        HasMain()
+    end)
+    task.wait(5)
 end
 
     
