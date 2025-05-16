@@ -28,19 +28,19 @@ function HasMain()
         return true
     end
     print("Not Found")
-    return false
 end
 
+
+time_execute = 0
 while true do
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MasterPClient/main/Loader.lua"))()
-    
-    local success, result = pcall(HasMain) -- <- ใส่ชื่อ function แบบนี้ (ไม่ใส่วงเล็บ)
-    
-    if success and result then
+    --if game.Players.LocalPlayer:FindFirstChild("PlayerGui") and game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main") then
+    --    break
+    --end
+    time_execute = time_execute + 1 
+    if time_execute >= 2 then
         break
     end
-    
-    wait(5)
 end
 
     
