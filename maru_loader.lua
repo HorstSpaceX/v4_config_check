@@ -1,44 +1,40 @@
-local settingsKeyName = _G.SettingsName or "Settings_V4"
-local settings = _G[settingsKeyName]
-
-if not settings then
-    warn("Settings not found with name:", settingsKeyName)
-    return
-end
-
-repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
-
-local Players = game:GetService("Players")
-local localName = Players.LocalPlayer.Name
-local allowedNames = {}
+local allowed = false
 
 for _, name in ipairs(settings["HelperNameList"]) do
-    allowedNames[name] = true
+    if name == localName then
+        allowed = true
+        break
+    end
 end
 
-for _, name in ipairs(settings["V4FarmList"]) do
-    allowedNames[name] = true
+if not allowed then
+    for _, name in ipairs(settings["V4FarmList"]) do
+        if name == localName then
+            allowed = true
+            break
+        end
+    end
 end
 
--- ✅ ถ้าชื่อผู้เล่นอยู่ในรายการ allowedNames ให้เซ็ตกลับเป็น _G.Settings_V4
-if allowedNames[localName] then
+if allowed then
     _G.Settings_V4 = settings
     print("Found")
 else
-    print(settings)
-    print(localName)
     print("Not Found")
     return
 end
+
 
 function HasMain()
     local gui = game.Players.LocalPlayer:FindFirstChild("PlayerGui")
     if gui and gui:FindFirstChild("Main (minimal)") then
         print("Found")
+        --return true
         loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MasterPClient/main/Loader.lua"))()
     end
     print("Not Found")
 end
+
 
 while true do
     task.spawn(function()
