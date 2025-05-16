@@ -6,6 +6,7 @@ if not settings then
     return
 end
 
+local allowed = false
 local Players = game:GetService("Players")
 repeat wait() until game:IsLoaded() and Players.LocalPlayer
 localName = Players.LocalPlayer.Name
