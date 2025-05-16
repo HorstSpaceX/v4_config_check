@@ -33,6 +33,7 @@ end
 
 time_execute = 0
 while true do
+    wait(20)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MasterPClient/main/Loader.lua"))()
     --if game.Players.LocalPlayer:FindFirstChild("PlayerGui") and game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main") then
     --    break
