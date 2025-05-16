@@ -25,6 +25,8 @@ if allowedNames[localName] then
     _G.Settings_V4 = settings
     print("Found")
 else
+    print(settings)
+    print(localName)
     print("Not Found")
     return
 end
